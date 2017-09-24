@@ -1,0 +1,120 @@
+body {
+	font-family: monospace;
+	margin: auto;
+    padding: 0 30px;
+    overflow: hidden;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 5px;
+}
+
+h1, h3 {
+	text-align: center;
+}
+
+input {
+    width: 200px;
+}
+
+.App {
+    height: 450px;
+    font-family: Arial;
+}
+
+.App li {
+    padding: 7px 5px;
+    display: block;
+    font-size: small;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    cursor: pointer;
+}
+
+.App li:last-child {
+    border-bottom: 1px solid;
+}
+
+.App li span {
+    display: inline-block;
+}
+
+.App li img {
+    max-width: 95%;
+    max-height: 95%;
+    float: left;
+    margin-right: 5px; 
+}
+
+.ItemList, .FeedList, .ItemContent {
+    height: 100%;
+    float: left;
+    overflow-y: scroll;
+}
+
+.FeedList {
+    width: 20%;
+}
+
+.FeedList img {
+    width: 35px;
+}
+
+.ItemList {
+    width: 30%;
+}
+
+.ItemList li {
+    min-height: 50px;
+    float: left;
+    position: relative;
+    width: 95%;
+}
+
+.ItemContent {
+    width: 49%;
+    border: 1px solid;
+}
+
+.ItemContent figure {
+    margin: 0;
+}
+
+.ItemContent figcaption {
+    display: none;
+}
+
+.ItemContent article {
+    padding: 0 10px;
+}
+
+.ItemContent article img, .ItemContent article iframe {
+    height: auto !important;
+    width: 90% !important;
+}
+
+.ItemImageWrapper {
+    float: left;
+    width: 28%;
+}
+
+.ItemTitleWrapper {
+    float: left;
+    width: 72%;
+    padding-bottom: 20px;
+}
+
+.ItemDate {
+    float: right;
+    padding-top: 5px;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
+.AddFeed {
+    margin: 10px;
+}
