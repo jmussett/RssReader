@@ -1,7 +1,7 @@
 import Readability from 'readability'
 
 const rssToJsonBaseUrl = 'https://api.rss2json.com/v1/api.json?api_key=h42kylxg0dstxjte5qwkoli1m5j2hq3edekdrosq&rss_url='
-const proxyUrl = 'http://cors-anywhere.herokuapp.com/'
+const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
 
 const fakeUri = {
     spec: "http://fakehost/test/page.html",
