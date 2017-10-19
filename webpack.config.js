@@ -43,9 +43,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "Rss Reader"
         }),
-        // Include public asset links in index template.
+        // Include public css links in index template.
         new HtmlWebpackIncludeAssetsPlugin({
-            assets: [{ path: "assets", glob: '*', globPath: 'assets/' }],
+            assets: [{ path: "assets", glob: '*.css', globPath: 'assets/' }],
             cssExtensions: ['.css'],
             append: true
         })
