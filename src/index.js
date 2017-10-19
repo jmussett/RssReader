@@ -23,6 +23,10 @@ initialFeedPromise.then(feed => {
     dispatch({type: 'LOADING_APP', loading: false})
 })
 
+var div = document.createElement('div');
+div.setAttribute('id', 'root');
+document.body.appendChild(div);
+
 render(
     <Provider store={store}>
         <App />
