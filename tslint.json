@@ -11,7 +11,10 @@
         "ordered-imports": false,
         "max-line-length": false,
         "object-literal-sort-keys": false,
-        "no-any": true
+        "no-any": true,
+        "no-var-requires": false,
+        "no-empty": false,
+        "no-empty-interface": false
     },
     "rulesDirectory": []
 }
