@@ -1,10 +1,13 @@
 import * as React from "react";
+import { Dispatch } from "redux";
 import { connect } from "react-redux";
-import { Feed, IFeed } from "./Feed";
+import { IFeed, IRootState } from "../state";
+import { IRootAction } from "../actions";
+import Feed from "./Feed";
 
 interface IFeedListProps {
     feeds: IFeed[];
-    dispatch: () => void;
+    dispatch: Dispatch<IRootAction>;
 }
 
 const FeedList: React.SFC<IFeedListProps> = ({ feeds, dispatch }) => {
@@ -23,10 +26,8 @@ const FeedList: React.SFC<IFeedListProps> = ({ feeds, dispatch }) => {
     );
 };
 
-const mapStateToProps = (state: any) => {
-    return {
-        feeds: state.feeds
-    };
-};
+const mapStateToProps = (state: IRootState) => ({
+    feeds: state.feeds,
+});
 
 export default connect(mapStateToProps)(FeedList);

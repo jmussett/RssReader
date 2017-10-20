@@ -1,19 +1,15 @@
 import * as React from "react";
-
-interface IFeed {
-    feed: {
-        title: string
-    };
-    items: Array<{}>;
-}
+import { Dispatch } from "redux";
+import { actionCreators, IRootAction } from "../actions";
+import { IFeed } from "../state";
 
 interface IFeedProps {
     feed: IFeed;
-    dispatch: (action: any) => void;
+    dispatch: Dispatch<IRootAction>;
 }
 
 const Feed: React.SFC<IFeedProps> = ({ feed, dispatch }) => {
-    const handleShowFeed = () => dispatch({ type: "SHOW_FEED_ITEMS", items: feed.items });
+    const handleShowFeed = () => dispatch(actionCreators.showFeedItems(feed.items));
 
     return (
         <li onClick={handleShowFeed}>
@@ -22,7 +18,4 @@ const Feed: React.SFC<IFeedProps> = ({ feed, dispatch }) => {
     );
 };
 
-export {
-    Feed,
-    IFeed
-};
+export default Feed;

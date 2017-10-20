@@ -1,16 +1,22 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { addFeed } from "../actions";
+import { addFeed, IRootAction } from "../actions";
+import { IRootState } from "../state";
+import { Dispatch } from "redux";
 
 interface IAddFeedProps {
     loading: boolean;
-    dispatch: (action: any) => void;
+    dispatch: Dispatch<IRootAction>;
 }
 
 const AddFeed: React.SFC<IAddFeedProps> = ({ loading, dispatch }) => {
-    let input: any;
+    let input: HTMLInputElement | null;
 
-    const handleAddFeed = () => { dispatch(addFeed(input.value)); input.value = ""; };
+    const handleAddFeed = () => {
+        if (input != null) {
+            dispatch(addFeed(input.value)); input.value = "";
+        }
+    };
 
     return (
         <div className="AddFeed">
@@ -23,10 +29,8 @@ const AddFeed: React.SFC<IAddFeedProps> = ({ loading, dispatch }) => {
     );
 };
 
-const mapStateToProps = (state: any) => {
-    return {
-        loading: state.feedloading
-    };
-};
+const mapStateToProps = (state: IRootState) => ({
+    loading: state.feedLoading,
+});
 
 export default connect(mapStateToProps)(AddFeed);

@@ -1,17 +1,12 @@
 import * as React from "react";
-import { fetchItemContent } from "../actions";
 import * as moment from "moment";
-
-interface IItem {
-    thumbnail: string;
-    title: string;
-    pubDate: Date;
-    link: string;
-}
+import { Dispatch } from "redux";
+import { fetchItemContent, IRootAction } from "../actions";
+import { IItem } from "../state";
 
 interface IItemProps {
     item: IItem;
-    dispatch: (action: any) => void;
+    dispatch: Dispatch<IRootAction>;
 }
 
 const Item: React.SFC<IItemProps> = ({ item, dispatch }) => {
@@ -26,7 +21,4 @@ const Item: React.SFC<IItemProps> = ({ item, dispatch }) => {
     );
 };
 
-export {
-    Item,
-    IItem
-};
+export default Item;

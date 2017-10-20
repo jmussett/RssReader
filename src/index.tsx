@@ -1,13 +1,14 @@
 import * as React from "react";
+import thunkMiddleware from "redux-thunk";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import thunkMiddleware from "redux-thunk";
-import reducers from "./reducers";
-import { addFeed } from "./actions";
+import { createStore, applyMiddleware, Store } from "redux";
+import { reducers } from "./reducers";
+import { actionCreators, addFeed } from "./actions";
+import { IRootState } from "./state";
 import App from "./App";
 
-const store = createStore(reducers, applyMiddleware(thunkMiddleware));
+const store: Store<IRootState> = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 const dispatch = store.dispatch;
 
@@ -16,11 +17,11 @@ dispatch(addFeed("http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"));
 dispatch(addFeed("http://feeds.skynews.com/feeds/rss/home.xml"));
 dispatch(addFeed("http://rt.com/rss"));
 
-dispatch({type: "LOADING_APP", loading: true});
+dispatch(actionCreators.appLoading(true));
 
 initialFeedPromise.then(feed => {
-    dispatch({ type: "SHOW_FEED_ITEMS", items: feed.items });
-    dispatch({type: "LOADING_APP", loading: false});
+    dispatch(actionCreators.showFeedItems(feed.items));
+    dispatch(actionCreators.appLoading(false));
 });
 
 const div = document.createElement("div");
@@ -31,5 +32,5 @@ render(
     <Provider store={store}>
         <App />
     </Provider>,
-    document.getElementById("root")
+    document.getElementById("root"),
 );

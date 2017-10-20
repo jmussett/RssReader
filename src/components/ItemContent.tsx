@@ -1,5 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
+import { IRootState } from "../state";
 
 interface IItemContentProps {
     loading: boolean;
@@ -36,13 +37,11 @@ const ItemContent: React.SFC<IItemContentProps> = ({ loading, invalid, title, co
     );
 };
 
-const mapStateToProps = (state: any) => {
-    return {
-        loading: state.content.loading,
-        invalid: state.content.invalid,
-        title: state.content.title,
-        content: state.content.content
-    };
-};
+const mapStateToProps = (state: IRootState) => ({
+    loading: state.content.loading,
+    invalid: state.content.invalid,
+    title: state.content.title,
+    content: state.content.content,
+});
 
 export default connect(mapStateToProps)(ItemContent);

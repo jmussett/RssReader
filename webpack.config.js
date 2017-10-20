@@ -6,6 +6,7 @@ var HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin
 module.exports = {
     // Single entry point at index.js.
     entry: ["./src/index.tsx"],
+    devtool: "inline-source-map",
     // Output React App bundle to distribution folder.
     output: {
         path: path.resolve(__dirname, "dist"),

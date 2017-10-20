@@ -1,10 +1,13 @@
 import * as React from "react";
+import { Dispatch } from "redux";
 import { connect } from "react-redux";
-import { Item, IItem} from "./Item";
+import { IItem, IRootState } from "../state";
+import { IRootAction } from "../actions";
+import Item from "./Item";
 
 interface IITemListProps {
     items: IItem[];
-    dispatch: () => void;
+    dispatch: Dispatch<IRootAction>;
 }
 
 const ItemList: React.SFC<IITemListProps> = ({ items, dispatch }) => {
@@ -17,10 +20,8 @@ const ItemList: React.SFC<IITemListProps> = ({ items, dispatch }) => {
     );
 };
 
-const mapStateToProps = (state: any) => {
-    return {
-        items: state.items
-    };
-};
+const mapStateToProps = (state: IRootState) => ({
+    items: state.items,
+});
 
 export default connect(mapStateToProps)(ItemList);
