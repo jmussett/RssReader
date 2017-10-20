@@ -17,10 +17,10 @@ module.exports = {
     },
     module: {
         rules: [
-            // .ts and .tsx TypeScript files get transpiles by TypeScript loader.
+            // .ts and .tsx TypeScript files get transpiles by Awesome TypeScript loader.
             {
                 test: /\.tsx?$/,
-                loader: "ts-loader",
+                loader: "awesome-typescript-loader",
                 exclude: /node_modules/
             },
             // .js and .jsx JavaScript files get transpiled by babel loader's env and react presets.
